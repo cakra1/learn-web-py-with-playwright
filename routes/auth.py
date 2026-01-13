@@ -97,8 +97,11 @@ def forgot_password():
         cursor.close()
         db.close()
 
-        # BYPASS EMAIL → LANGSUNG KE RESET PAGE
-        return redirect(f"/reset/{token}")
+        reset_link = f"http://localhost:5000/reset/{token}"
+        send_reset_email(email, reset_link)
+        flash("Link reset sudah dikirim ke email", "success")
+        return redirect("/login")
+
 
     return render_template("auth/index.html", page="forgot")
 
