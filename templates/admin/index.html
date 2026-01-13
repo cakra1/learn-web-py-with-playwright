@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'admin/head.html' %}
+    <body class="sb-nav-fixed">
+        {% include 'admin/atas.html' %}
+        <div id="layoutSidenav">
+                        <!-- SIDEBAR -->
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    {% include 'admin/sidebar.html' %}
+                    {% include 'admin/kiri_bawah.html' %}
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                {% if page == "dashboard" %}
+                    {% include "admin/dashboard.html" %}
+                {% elif page == "users" %}
+                    {% include "admin/user.html" %}
+                {% elif page == "register" %}
+                    {% include "admin/register.html" %}
+                {% elif page == "edit_register" %}
+                    {% include "admin/edit_register.html" %}
+                {% elif page == "edit_user" %}
+                    {% include "admin/edit_user.html" %}
+                {% else %}
+                    <h1 class="mt-4">Admin Panel</h1>
+                {% endif %}
+                {% include 'admin/footer.html' %}
+            </div>
+        </div>
+        {% include 'admin/js.html' %}
+    </body>
+</html>

@@ -1,0 +1,59 @@
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Edit User</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Edit User</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                ini bagian edit user... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card">
+                              <div class="card-header">
+                                <i class="fas fa-user-edit me-1"></i>
+                                Edit User
+                              </div>
+                              <div class="card-body">
+                                <form action="/admin/user/update" method="POST">
+                                  <input type="hidden" name="id" value="{{ user.id }}">
+
+                                  <div class="mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" name="name" class="form-control"
+                                           value="{{ user.name }}" required>
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control"
+                                           value="{{ user.email }}" required>
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <label class="form-label">Password (opsional)</label>
+                                    <input type="password" name="password" class="form-control">
+                                    <small class="text-muted">
+                                      Kosongkan jika tidak ingin mengubah password
+                                    </small>
+                                  </div>
+
+                                  <button type="submit" class="btn btn-primary">
+                                    Update
+                                  </button>
+                                  <a href="{{ url_for('admin.users_list') }}" class="btn btn-secondary">
+                                    Batal
+                                  </a>
+                                </form>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>

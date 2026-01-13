@@ -1,0 +1,27 @@
+<form method="POST" action="/login">
+  <div class="form-outline mb-4">
+    <input type="email" name="email" class="form-control form-control-lg"
+           placeholder="Enter a valid email address" required>
+    <label class="form-label">Email address</label>
+  </div>
+
+  <div class="form-outline mb-3">
+    <input type="password" name="password" class="form-control form-control-lg"
+           placeholder="Enter password" required>
+    <label class="form-label">Password</label>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="form-check mb-0">
+      <input class="form-check-input me-2" type="checkbox">
+      <label class="form-check-label">Remember me</label>
+    </div>
+    <a href="/forgot" class="text-body">Forgot password?</a>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg mt-3">
+    Login
+  </button>
+    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
+    <a href="/register" class="link-danger">Register/Signup</a></p>
+</form>

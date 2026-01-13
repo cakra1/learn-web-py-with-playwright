@@ -1,0 +1,85 @@
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Register</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Register</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                ini adalah Register... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable User
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>tempat tanggal lahir</th>
+                                            <th>Gender</th>
+                                            <th>email</th>
+                                            <th>Nomor HP</th>
+                                            <th>Status pernikahan</th>
+                                            <th>Alamat Lengkap</th>
+                                            <th>Created at</th>
+                                            <th>update at</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>tempat tanggal lahir</th>
+                                            <th>Gender</th>
+                                            <th>email</th>
+                                            <th>Nomor HP</th>
+                                            <th>Status pernikahan</th>
+                                            <th>Alamat Lengkap</th>
+                                            <th>Created at</th>
+                                            <th>update at</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    {% for r in registrations %}
+                                    <tr>
+                                        <td>{{ r.nama_lengkap }}</td>
+                                        <td>{{ r.tempat_lahir }}, {{ r.tanggal_lahir }}</td>
+                                        <td>{{ r.gender }}</td>
+                                        <td>{{ r.email }}</td>
+                                        <td>{{ r.nomor_hp }}</td>
+                                        <td>{{ r.status_pernikahan }}</td>
+                                        <td>{{ r.alamat_lengkap }}</td>
+                                        <td>{{ r.created_at }}</td>
+                                        <td>{{ r.updated_at or '-' }}</td>
+                                        <td class="text-nowrap">
+                                            <form action="/admin/register/delete" method="POST">
+                                                <input type="hidden" name="id" value="{{ r.id }}">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                  onclick="return confirm('Yakin mau hapus user ini?')">Delete</button>
+                                            </form>
+                                            <a href="/admin/register/edit?id={{ r.id }}" class="btn btn-sm btn-warning">Edit</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                          <a href="/admin/register/export" class="btn btn-success">
+                            <i class="fas fa-file-excel"></i> Download Excel
+                          </a>
+                        </div>
+                    </div>
+                </main>

@@ -1,0 +1,124 @@
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Edit</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Edit</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                ini bagian edit register... Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card">
+                              <div class="card-header">
+                                <i class="fas fa-user-edit me-1"></i>
+                                Edit User
+                              </div>
+                              <div class="card-body">
+                                <form action="/admin/register/update" method="POST">
+                                  <input type="hidden" name="id" value="{{ register.id }}">
+                                  <div class="mb-3">
+                                    <label class="form-label">Nama lengkap</label>
+                                    <input type="text" name="nama_lengkap" class="form-control"
+                                           value="{{ register.nama_lengkap }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Tempat Lahir</label>
+                                    <input type="text" name="tempat_lahir" class="form-control"
+                                           value="{{ register.tempat_lahir }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Tanggal Lahir</label>
+                                    <input type="date"
+                                       name="tanggal_lahir"
+                                       class="form-control"
+                                       value="{{ register.tanggal_lahir }}"
+                                       max="{{ now.strftime('%Y-%m-%d') }}"
+                                       required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                      <div>
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input"
+                                                 type="radio"
+                                                 name="gender"
+                                                 id="gender_male"
+                                                 value="Male"
+                                                 {% if register.gender == 'Male' %}checked{% endif %}>
+                                          <label class="form-check-label" for="gender_male">Male</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input"
+                                                 type="radio"
+                                                 name="gender"
+                                                 id="gender_female"
+                                                 value="Female"
+                                                 {% if register.gender == 'Female' %}checked{% endif %}>
+                                          <label class="form-check-label" for="gender_female">Female</label>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control"
+                                           value="{{ register.email }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Nomor HP</label>
+                                    <input type="text" name="nomor_hp" class="form-control"
+                                           value="{{ register.nomor_hp }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Provinsi</label>
+                                    <input type="text" name="provinsi" class="form-control"
+                                           value="{{ register.provinsi }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Kota</label>
+                                    <input type="text" name="kota" class="form-control"
+                                           value="{{ register.kota }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Kecamatan</label>
+                                    <input type="text" name="kecamatan" class="form-control"
+                                           value="{{ register.kecamatan }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Kelurahan</label>
+                                    <input type="text" name="kelurahan" class="form-control"
+                                           value="{{ register.kelurahan }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Kode Pos</label>
+                                    <input type="text" name="kode_pos" class="form-control"
+                                           value="{{ register.kode_pos }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Status Pernikahan</label>
+                                    <input type="text" name="status_pernikahan" class="form-control"
+                                           value="{{ register.status_pernikahan }}" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Alamat Lengkap</label>
+                                    <input type="text" name="alamat_lengkap" class="form-control"
+                                           value="{{ register.alamat_lengkap }}" required>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">
+                                    Update
+                                  </button>
+                                  <a href="{{ url_for('admin.register') }}" class="btn btn-secondary">
+                                    Batal
+                                  </a>
+                                </form>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
